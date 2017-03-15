@@ -1,0 +1,41 @@
+<?php
+/**
+ * Copyright © 2015 Dexa. All rights reserved.
+ * See DEXA.txt for license details.
+ */
+/* @var $block \Dexa\Warmer\Block\Adminhtml\ResetOrderPosition */
+?>
+    <script>
+        require([
+            'jquery',
+            'prototype',
+        ], function(jQuery){
+
+            var resetOrderPosition = {
+                init: function() {
+                    this.updateGeoIpText = jQuery('#reset_order_position').text();
+
+                    jQuery('#reset_order_position').click(function (e) {this.click(e);}.bind(this));
+                },
+
+                click: function () {
+                    jQuery('#reset_order_position').css('background-color', 'red').css('color', 'white').text('working ...');
+
+                    new Ajax.Request('<?php /* @escapeNotVerified */ echo $block->getBlockUrl() ?>', {
+                        loaderArea: false,
+                        asynchronous: true,
+                        parameters: {},
+                        onSuccess: function() {
+                            jQuery('#reset_order_position').css('background-color', 'green').css('color', 'white').text('Done');
+                        }.bind(this),
+                        onFailure: function() {
+                            jQuery('#reset_order_position').css('background-color', 'inherit').css('color', 'red').text('Error');
+                        }.bind(this),
+                    });
+                }
+            }
+
+            resetOrderPosition.init();
+        });
+    </script>
+<?php echo $block->getButtonHtml() ?>

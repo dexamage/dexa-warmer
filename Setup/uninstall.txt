@@ -1,0 +1,4 @@
+DELETE FROM `setup_module` WHERE `setup_module`.`module` = 'dexa_warmer';
+
+DROP TABLE IF EXISTS `dexa_warmer_url`;
+

@@ -1,0 +1,35 @@
+<?php
+/**
+ * Copyright © 2016 Dexa. All rights reserved.
+ * See DEXA.txt for license details.
+ */
+
+/**
+ * @var $block \Dexa\Warmer\Block\Warmer
+ * @var $this \Dexa\Warmer\Block\Warmer
+ */
+?>
+<?php if ($block->isEnabled()): ?>
+    <script>
+        require([
+            'jquery',
+        ], function ($) {
+            jQuery.ajax({
+                type: 'POST',
+                url: '/dexa_warmer/index/stats',
+                timeout: 1,
+                data: {
+                    url: window.location.href,
+                    <?php /* uri: '<?php echo $block->getUri() ?>', */ ?>
+                    path: '<?php echo $block->getPath() ?>'
+                }
+            })
+            .done(jQuery.proxy(function (response) {
+                console.log('warmer done');
+            }, this))
+            .fail(jQuery.proxy(function (response) {
+                console.log('warmer fail');
+            }, this));
+        });
+    </script>
+<?php endif ?>

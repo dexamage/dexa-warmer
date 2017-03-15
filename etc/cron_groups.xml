@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 SaM Solutions. All rights reserved.
+ * See Wgaca.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/cron_groups.xsd">
+    <group id="warmer">
+        <schedule_generate_every>1</schedule_generate_every>
+        <schedule_ahead_for>1</schedule_ahead_for>
+        <schedule_lifetime>60</schedule_lifetime>
+        <history_cleanup_every>240</history_cleanup_every>
+        <history_success_lifetime>120</history_success_lifetime>
+        <history_failure_lifetime>600</history_failure_lifetime>
+        <use_separate_process>1</use_separate_process>
+    </group>
+<!--
+schedule_generate_every    Will schedule the group’s jobs every X minutes
+                            Determines the frequency, in minutes, that schedules are written to the cron_schedule table.
+schedule_ahead_for         Will schedule ahead for X minutes the group’s jobs
+                            Determines the number of minutes in advance that schedules are written to the cron_schedule table.
+schedule_lifetime          If the job is not finished after X minutes, it will be mark as failed
+                            Schedule lifetime in minutes.
+history_cleanup_every      Will clean the cron_schedule ended tasks every X minutes
+                            Determines the number of minutes that cron history is kept in the database.
+history_success_lifetime   Will keep the successed jobs inside the cron_schedule during X minutes
+                            Determines the number of minutes that the record of successfully completed cron jobs are kept in the database.
+history_failure_lifetime   Will keep the failed jobs inside the cron_schedule during X minutes
+                            Determines the number of minutes that the record of failed cron jobs are kept in the database.
+use_separate_process       If 1, each job will run on a separate process. Else, only one process will be created for all the jobs
+                            If set to 1, all cron jobs in this group run in parallel as separate processes.If set to 0, all cron jobs in this group run one after the other as separate processes.
+-->
+</config>

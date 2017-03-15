@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Dexa. All rights reserved.
+ * See LABELS.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <dexa_warmer>
+            <general>
+                <enabled>0</enabled>
+                <observing_cache>1</observing_cache>
+            </general>
+            <stats>
+                <enabled>1</enabled>
+            </stats>
+            <cron>
+                <enabled>1</enabled>
+                <nonstop>1</nonstop>
+                <timeout>60</timeout>
+                <limit>-1</limit>
+                <min_order>-1</min_order>
+            </cron>
+            <sys>
+                <status>1</status>
+                <started_time></started_time>
+            </sys>
+        </dexa_warmer>
+    </default>
+</config>

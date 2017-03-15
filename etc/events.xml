@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 Dexa. All rights reserved.
+ * See DEXA.txt for license details.
+ */
+
+ // see vendor/magento/module-cache-invalidate/etc/events.xml
+
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="clean_cache_by_tags">
+        <observer name="dexa_warmer_invalidate_varnish" instance="Dexa\Warmer\Observer\CacheInvalidateCond"/>
+    </event>
+    <event name="adminhtml_cache_flush_system">
+        <observer name="dexa_warmer_flush_varnish_pagecache" instance="Dexa\Warmer\Observer\CacheInvalidate"/>
+    </event>
+    <event name="clean_media_cache_after">
+        <observer name="dexa_warmer_flush_varnish_pagecache" instance="Dexa\Warmer\Observer\CacheInvalidate"/>
+    </event>
+    <event name="clean_catalog_images_cache_after">
+        <observer name="dexa_warmer_flush_varnish_pagecache" instance="Dexa\Warmer\Observer\CacheInvalidate"/>
+    </event>
+    <event name="assigned_theme_changed">
+        <observer name="dexa_warmer_flush_varnish_pagecache" instance="Dexa\Warmer\Observer\CacheInvalidateCond"/>
+    </event>
+    <event name="catalogrule_after_apply">
+        <observer name="dexa_warmer_flush_varnish_pagecache" instance="Dexa\Warmer\Observer\CacheInvalidateCond"/>
+    </event>
+    <event name="adminhtml_cache_refresh_type">
+        <observer name="dexa_warmer_flush_varnish_pagecache" instance="Dexa\Warmer\Observer\CacheInvalidate"/>
+    </event>
+    <event name="adminhtml_cache_flush_all">
+        <observer name="dexa_warmer_flush_varnish_pagecache" instance="Dexa\Warmer\Observer\CacheInvalidate"/>
+    </event>
+    <event name="assign_theme_to_stores_after">
+        <observer name="dexa_warmer_flush_varnish_pagecache" instance="Dexa\Warmer\Observer\CacheInvalidate"/>
+    </event>
+    <event name="controller_action_postdispatch_adminhtml_system_currency_saveRates">
+        <observer name="dexa_warmer_flush_varnish_pagecache" instance="Dexa\Warmer\Observer\CacheInvalidateCond"/>
+    </event>
+    <event name="controller_action_postdispatch_adminhtml_system_config_save">
+        <observer name="dexa_warmer_flush_varnish_pagecache" instance="Dexa\Warmer\Observer\CacheInvalidateCond"/>
+    </event>
+    <event name="controller_action_postdispatch_adminhtml_catalog_product_action_attribute_save">
+        <observer name="dexa_warmer_flush_varnish_pagecache" instance="Dexa\Warmer\Observer\CacheInvalidateCond"/>
+    </event>
+    <event name="controller_action_postdispatch_adminhtml_catalog_product_massStatus">
+        <observer name="dexa_warmer_flush_varnish_pagecache" instance="Dexa\Warmer\Observer\CacheInvalidateCond"/>
+    </event>
+    <event name="controller_action_postdispatch_adminhtml_system_currencysymbol_save">
+        <observer name="dexa_warmer_flush_varnish_pagecache" instance="Dexa\Warmer\Observer\CacheInvalidateCond"/>
+    </event>
+    <event name="clean_cache_after_reindex">
+        <observer name="dexa_warmer_flush_varnish_pagecache" instance="Dexa\Warmer\Observer\CacheInvalidateCond"/>
+    </event>
+</config>

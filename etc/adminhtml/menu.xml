@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Dexa. All rights reserved.
+ * See LABELS.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Dexa_Warmer::index" title="Dexa Warmer" module="Dexa_Warmer" sortOrder="72" parent="Magento_Backend::system" resource="Dexa_Warmer::index"/>
+
+        <add id="Dexa_Warmer::warmer" title="Urls Statistic" module="Dexa_Warmer" sortOrder="72" parent="Dexa_Warmer::index" action="dexa_warmer/url/grid" resource="Dexa_Warmer::warmer"/>
+    </menu>
+</config>

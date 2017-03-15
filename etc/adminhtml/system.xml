@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Wgaca. All rights reserved.
+ * See WGACA.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="dexa" translate="label" sortOrder="1">
+            <label>Dexa</label>
+        </tab>
+        <section id="dexa_warmer" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Cache Warmer</label>
+            <tab>dexa</tab>
+            <resource>Dexa_Warmer::index</resource>
+            <class>separator-top</class>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Translate</backend_model>
+                </field>
+                <field id="observing_cache" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Observing Cache Changes</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Translate</backend_model>
+                </field>
+            </group>
+            <group id="stats" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Gather Statistics</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Translate</backend_model>
+                </field>
+                <field id="reset_order_position" translate="label comment" type="button" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <frontend_model>Dexa\Warmer\Block\Adminhtml\ResetOrderPosition</frontend_model>
+                    <label>Reset Order Position</label>
+                    <comment>Update with `View Count` values</comment>
+                </field>
+            </group>
+            <group id="cron" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Cron</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Translate</backend_model>
+                </field>
+                <field id="nonstop" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Warming Non Stop</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Translate</backend_model>
+                    <comment>Run warmer cyclically, non stop</comment>
+                </field>
+                <field id="timeout" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Timiout(minutes)</label>
+                    <comment>Timeout when cron automaticly stops</comment>
+                </field>
+                <field id="limit" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Limit</label>
+                    <comment>Count of pages for warming. For ignore this option set -1.</comment>
+                </field>
+                <field id="min_order" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Min Order Position</label>
+                    <comment>Warming pages with `Order Position` equal or greater. For ignore this option set -1.</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 SaM Solutions. All rights reserved.
+ * See Wgaca.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="warmer">
+        <job name="dexa_warmer_warm" instance="Dexa\Warmer\Cron\Warm" method="execute">
+            <schedule>* * * * *</schedule>
+        </job>
+        <job name="dexa_warmer_position" instance="Dexa\Warmer\Cron\Position" method="execute">
+            <schedule>0 * * * *</schedule>
+        </job>
+    </group>
+</config>

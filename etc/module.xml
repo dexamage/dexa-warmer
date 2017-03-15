@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Dexa. All rights reserved.
+ * See DEXA.txt for license details.
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Dexa_Warmer" setup_version="214.1.2">
+        <sequence>
+            <module name="Magento_PageCache"/>
+        </sequence>
+    </module>
+</config>
